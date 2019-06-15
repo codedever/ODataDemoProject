@@ -1,7 +1,10 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.Extensions.Caching.Redis;
+using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
 using ODataDemoProject.Models;
+using StackExchange.Redis;
 using System;
 
 namespace ODataDemoProject
@@ -69,6 +72,7 @@ namespace ODataDemoProject
 
         public static AppSetting AppSetting { get; internal set; }
         public static KeyGeneratorOptions KeyGenerator { get; internal set; }
+        public static RedisConfigurationOptions Redis { get; internal set; }
 
         public static readonly JsonSerializerSettings JsonSerializerSetting = new JsonSerializerSettings()
         {
@@ -107,6 +111,17 @@ namespace ODataDemoProject
             //超长数字转字符串输出
             serializerSettings.Converters.Add(new LargeNumberConverter());
         };
+
+        public static Action<RedisCacheOptions, IConfiguration> SetupRedisCacheOptions = (options, config) =>
+        {
+            //redis 实例名
+            //options.InstanceName = REDIS_INSTANCE_NAME;
+            options.ConfigurationOptions = Redis.Options;
+            if (Redis.EndPoint != null)
+            {
+                options.ConfigurationOptions.EndPoints.Add(Redis.EndPoint.Host, Redis.EndPoint.Port);
+            }
+        };
     }
 
     public class AppSetting
@@ -132,5 +147,17 @@ namespace ODataDemoProject
     {
         public string Host { get; set; }
         public int Port { get; set; }
+    }
+
+    public class RedisConfigurationOptions
+    {
+        public RedisConfigurationOptions()
+        {
+            InstanceName = AppSettings.REDIS_INSTANCE_NAME;
+        }
+
+        public string InstanceName { get; set; }
+        public ConfigurationOptions Options { get; set; }
+        public EndPoint EndPoint { get; set; }
     }
 }

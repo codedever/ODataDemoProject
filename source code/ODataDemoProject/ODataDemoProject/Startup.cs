@@ -27,7 +27,8 @@ namespace ODataDemoProject
             //读取配置文件
             AppSettings.KeyGenerator = Configuration.GetConfig<KeyGeneratorOptions>(nameof(AppSettings.KeyGenerator));
             AppSettings.AppSetting = Configuration.GetConfig<AppSetting>(nameof(AppSettings.AppSetting));
-            services.AddDistributedMemoryCache();
+            AppSettings.Redis = Configuration.GetConfig<RedisConfigurationOptions>(nameof(AppSettings.Redis));
+            services.AddDistributedRedisCache(setup => AppSettings.SetupRedisCacheOptions(setup, Configuration));
             services.AddHttpContextAccessor();
             services.AddSession(options =>
             {

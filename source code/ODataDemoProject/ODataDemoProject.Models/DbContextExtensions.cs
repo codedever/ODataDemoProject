@@ -52,10 +52,10 @@ namespace ODataDemoProject.Models
         /// <param name="dbContext"></param>
         /// <param name="enableCache"></param>
         /// <returns>返回对当前类型的数据库上下文的引用</returns>
-        public static IQueryable<TEntitySet> GetQueryable<TEntitySet>(this DbContext dbContext, bool enableCache = false) where TEntitySet : class
+        public static IQueryable<TEntitySet> GetQueryable<TEntitySet>(this DbContext dbContext) where TEntitySet : class
         {
             var type = typeof(TEntitySet);
-            if (type.HasAttribute<CacheableAttribute>() && enableCache)
+            if (type.HasAttribute<CacheableAttribute>())
             {
                 var cacheKey = BaseAppSettings.DATA_CACHE + type.Name.ToUpper();
                 var cache = dbContext.GetNonPublicValue<IDistributedCache>();
