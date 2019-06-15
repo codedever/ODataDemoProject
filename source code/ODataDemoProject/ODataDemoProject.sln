@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29009.5
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ODataDemoProject", "ODataDemoProject\ODataDemoProject.csproj", "{0161D267-97A9-4AD6-9951-B6BC75C16772}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ODataDemoProject.Models", "ODataDemoProject.Models\ODataDemoProject.Models.csproj", "{B01A1461-5AE1-4A23-90A2-7C912B667D90}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0161D267-97A9-4AD6-9951-B6BC75C16772}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0161D267-97A9-4AD6-9951-B6BC75C16772}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0161D267-97A9-4AD6-9951-B6BC75C16772}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0161D267-97A9-4AD6-9951-B6BC75C16772}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B01A1461-5AE1-4A23-90A2-7C912B667D90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B01A1461-5AE1-4A23-90A2-7C912B667D90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B01A1461-5AE1-4A23-90A2-7C912B667D90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B01A1461-5AE1-4A23-90A2-7C912B667D90}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D5C34679-2DFC-49A7-BA41-6DF3852E4F78}
+	EndGlobalSection
+EndGlobal

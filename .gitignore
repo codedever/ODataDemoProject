@@ -1,0 +1,5 @@
+#忽略文件夹
+.vs/
+.vscode/
+obj/
+bin/
