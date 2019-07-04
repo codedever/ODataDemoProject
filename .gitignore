@@ -3,3 +3,5 @@
 .vscode/
 obj/
 bin/
+*.txt
+个人照片.jpg
